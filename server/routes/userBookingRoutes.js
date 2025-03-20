@@ -5,8 +5,8 @@ router.use(cors());
 const userBookings = require('../models/userBookings.js');
 
 router.post("/addBooking", async (req,res)=>{
-    let {name,email,doctorEmail,date,time,meetingId,docName,expertise,sta,reason}=req.body
-    await userBookings.create({ name,email,doctorEmail,dnt:{date,time},meetingId,docName,expertise,sta,reason});
+    let {name,email,consultantEmail,date,time,meetingId,consultantName,expertise,sta,reason}=req.body
+    await userBookings.create({ name,email,consultantEmail,dnt:{date,time},meetingId,consultantName,expertise,sta,reason});
     res.send("Booking done");
 })
 
@@ -17,8 +17,8 @@ router.get("/getBooking/:email",async(req,res)=>{
 })
 
 router.patch("/cancelBooking",async(req,res)=>{
-    let {email,doctorEmail,date,time,reason} = req.body;
-    let data = await userBookings.find({$and:[{email:email},{doctorEmail:doctorEmail}]});
+    let {email,consultantEmail,date,time,reason} = req.body;
+    let data = await userBookings.find({$and:[{email:email},{consultantEmail:consultantEmail}]});
     let searchData= data.filter((temp)=>temp.dnt.date===date && temp.dnt.time===time);
     searchData[0].sta="Cancelled";
     searchData[0].reason=reason;
@@ -34,17 +34,17 @@ router.patch("/updateBooking",async(req,res)=>{
     {
         updateData[0].sta="Completed";
         await userBookings.findByIdAndUpdate(_id,updateData[0]);
-        res.send("Connected with doctor")
+        res.send("Connected with consultant")
     }
     else
     {
-        res.send("Could not connect with doctor")
+        res.send("Could not connect with consultant")
     }
 })
 
-router.get("/getDoctorBooking/:email",async(req,res)=>{
+router.get("/getConsultantBooking/:email",async(req,res)=>{
     let email= req.params.email;
-    let data = await userBookings.find({doctorEmail:email})
+    let data = await userBookings.find({consultantEmail:email})
     res.send(data)
 })
 

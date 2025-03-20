@@ -7,7 +7,7 @@ const userBookings = new mongoose.Schema({
   email: {
     type: String,
   },
-  doctorEmail: {
+  consultantEmail: {
     type: String
   },
   dnt: {
@@ -21,7 +21,7 @@ const userBookings = new mongoose.Schema({
   meetingId:{
     type:String,
   },
-  docName:{
+  conName:{
     type:String,
   },
   expertise:{

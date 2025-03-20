@@ -5,199 +5,167 @@ import { BiCommentDetail } from 'react-icons/bi';
 import Corousal from './Corousal';
 import { FaCircleChevronRight } from 'react-icons/fa6';
 import { LuMousePointerClick } from 'react-icons/lu';
-import { MdHorizontalRule } from 'react-icons/md';
 import { GoCommentDiscussion } from 'react-icons/go';
 import { PiPrescription } from 'react-icons/pi';
 
 function About() {
   return (
-    <div>
-      <div className='w-full h-[500px] bg-[url("https://www.golevelone.com/wp-content/uploads/slider8/slide-2.png")] bg-[length:100%_500px]'>
-        {/* <img src="https://www.golevelone.com/wp-content/uploads/slider8/slide-2.png" className='w-full h-96'/> */}
-        <div className="absolute top-44 left-[3%] ">
-          <span className="text-5xl">Skip the travel!</span>
-          <br />
-          <span className="text-5xl">Take Online Doctor Consultation</span>
-          <br />
-          <br />
-          <span className="text-2xl">
-            Private consultation + Video call · Starts at just ₹199
-          </span>
-          <br />
-          <br />
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded mr-4">
+    <main>
+      {/* Hero Section */}
+      <section
+        className="w-full h-[500px] bg-[url('https://i.ibb.co/2jssjLZ/gilles-lambert-pb-l-F8-VWa-PU-unsplash.jpg')] bg-cover bg-center relative"
+        aria-label="Hero Section"
+      >
+        <div className="absolute top-44 left-[3%]">
+          <h1 className="text-5xl text-white font-bold">
+            With Pocket Pal you can
+          </h1>
+          <h1 className="text-5xl text-white font-bold mt-4">
+            Talk to anyone anonymously
+          </h1>
+          <p className="text-2xl text-white mt-6">
+            Private consultation + Video call for a little fee
+          </p>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded mt-6 transition-all duration-300"
+            aria-label="Consult Now"
+          >
             Consult Now
           </button>
-          <br />
-          <br />
-          <br /><br />
-          <br /><br />
-          <div className="flex w-[90%] justify-between font-medium mt-2">
-            <p className="flex">
-              <span className="mt-1 mr-2">
-                <SlBadge />
-              </span>{' '}
-              Verified Doctors
+          <div className="flex w-[90%] justify-between font-medium mt-10">
+            <p className="flex items-center text-white">
+              <SlBadge className="mr-2" />
+              Verified Consultants
             </p>
-            <p className="flex">
-              <span className="mt-1 mr-2">
-                <FaFilePrescription />
-              </span>
-              Digital Prescription
+            <p className="flex items-center text-white">
+              <FaFilePrescription className="mr-2" />
+              Digital Prescription for medical issues
             </p>
-            <p className="flex">
-              <span className="mt-1 mr-2">
-                <BiCommentDetail />
-              </span>
-              Free Followup
+            <p className="flex items-center text-white">
+              <BiCommentDetail className="mr-2" />
+              Free spiritual Consultations
             </p>
           </div>
         </div>
-      </div>
-      <div className="relative top-16">
-        <h1 className="text-3xl ml-[3%] font-semibold">
-          Common Health Concerns
-        </h1>
-        <p className="text-lg text-gray-500 ml-[3%]">
-          Consult a doctor online for any health issue
+      </section>
+
+      {/* Common Health Concerns */}
+      <section className="relative top-16 px-[3%]" aria-label="Common Health Concerns">
+        <h2 className="text-3xl font-semibold">Common Health Concerns</h2>
+        <p className="text-lg text-gray-500 mt-2">
+          A consultant online for any conversation
         </p>
-        <br />
-        <br />
-        <div className="ml-[0.5%]">
+        <div className="mt-8">
           <Corousal />
         </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <div className="relative top-16 ml-[3%] w-[90%]">
-        <h1 className="text-3xl font-semibold">Offers</h1>
-        <div className="flex mt-10 justify-between">
-          <div className="w-[48%] h-56 bg-green-300 flex rounded">
+      </section>
+
+      {/* Offers Section */}
+      <section className="relative top-16 px-[3%] mt-16" aria-label="Offers">
+        <h2 className="text-3xl font-semibold">Offers</h2>
+        <div className="flex flex-wrap gap-6 mt-10">
+          <div className="w-full md:w-[48%] h-56 bg-green-300 flex rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="w-[90%]">
-              <p className=" bg-white py-1 text-green-500 w-max mt-4 ml-4 font-medium px-3">
+              <p className="bg-white py-1 text-green-500 w-max mt-4 ml-4 font-medium px-3">
                 OFFER
               </p>
-              <br />
-              <p className=" text-3xl font-semibold ml-4">
+              <p className="text-3xl font-semibold ml-4 mt-4">
                 Download the App & get
               </p>
-              <p className=" text-3xl font-semibold ml-4">₹200 HealthCash</p>
-              <br />
-              <p className=" text-xl font-semibold ml-4 flex">
+              <p className="text-3xl font-semibold ml-4">$200 AppCash</p>
+              <p className="text-xl font-semibold ml-4 flex mt-4">
                 Download App
-                <span className="mt-1.5 ml-2">
-                  <FaCircleChevronRight />
-                </span>{' '}
+                <FaCircleChevronRight className="ml-2 mt-1.5" />
               </p>
             </div>
             <div className="grid place-items-end justify-end">
               <img
                 src="https://www.practo.com/consult/static/images/offer-app-v1.png"
-                width="100px"
-                height="90px"
+                alt="App Download Offer"
+                width="100"
+                height="90"
               />
             </div>
           </div>
-          <div className="w-[48%] h-56 bg-orange-300 flex rounded">
+          <div className="w-full md:w-[48%] h-56 bg-orange-300 flex rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="w-[90%]">
-              <p className=" bg-white py-1 text-orange-500 w-max mt-4 ml-4 font-medium px-3">
+              <p className="bg-white py-1 text-orange-500 w-max mt-4 ml-4 font-medium px-3">
                 OFFER
               </p>
-              <br />
-              <p className=" text-3xl font-semibold ml-4">
+              <p className="text-3xl font-semibold ml-4 mt-4">
                 Consult with specialists at
               </p>
-              <p className=" text-3xl font-semibold ml-4">just ₹199</p>
-              <br />
-              <p className=" text-xl font-semibold ml-4 flex">
+              <p className="text-3xl font-semibold ml-4">just $199</p>
+              <p className="text-xl font-semibold ml-4 flex mt-4">
                 Consult Now
-                <span className="mt-1.5 ml-2">
-                  <FaCircleChevronRight />
-                </span>{' '}
+                <FaCircleChevronRight className="ml-2 mt-1.5" />
               </p>
             </div>
             <div className="grid place-items-end justify-end">
               <img
                 src="https://www.practo.com/consult/static/images/offer-specialist-v1.png"
-                width="100px"
-                height="90px"
+                alt="Specialist Consultation Offer"
+                width="100"
+                height="90"
               />
             </div>
           </div>
         </div>
-        <br />
-        <br /> <br /> <br />
-        <div className="grid place-items-center">
-          <h1 className=" text-4xl font-semibold">How it works</h1>
-          <br />
-          <br />
-          <div className="flex">
-            <div>
-              <div className="flex">
-                <LuMousePointerClick
-                  size={70}
-                  className=" bg-gray-200 rounded-full p-4 ml-14"
-                />
-                <hr className="border-gray-200 mt-9 border-2 w-24 " />
-              </div>
-              <p className="mt-4">Select a speciality or symptom</p>
-            </div>
-            <hr className="border-gray-200 mt-9 border-2 w-52 " />
-            <div>
-              <div className="flex">
-                <hr className="border-gray-200 mt-9 border-2 w-28 " />
-                <GoCommentDiscussion
-                  size={70}
-                  className=" bg-gray-200 rounded-full p-4"
-                />
-                <hr className="border-gray-200 mt-9 border-2 w-24 " />
-              </div>
-              <p className="mt-4">Audio/ video call with a verified doctor</p>
-            </div>
-            <hr className="border-gray-200 mt-9 border-2 w-52 " />
-            <div>
-              <div className="flex">
-                <hr className="border-gray-200 mt-9 border-2 w-24 " />
-                <PiPrescription
-                  size={70}
-                  className=" bg-gray-200 rounded-full p-4"
-                />
-              </div>
-              <p className="mt-4">
-                Get a digital prescription & a free follow-up
-              </p>
-            </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="grid place-items-center mt-32 px-[3%]" aria-label="How It Works">
+        <h2 className="text-4xl font-semibold">How it works</h2>
+        <div className="flex mt-16">
+          <div className="text-center">
+            <LuMousePointerClick
+              size={70}
+              className="bg-gray-200 rounded-full p-4 mx-auto"
+            />
+            <p className="mt-4">Select a specialty or Service</p>
+          </div>
+          <hr className="border-gray-200 mt-9 border-2 w-24 mx-4" />
+          <div className="text-center">
+            <GoCommentDiscussion
+              size={70}
+              className="bg-gray-200 rounded-full p-4 mx-auto"
+            />
+            <p className="mt-4">Audio/video call with a verified consultant</p>
+          </div>
+          <hr className="border-gray-200 mt-9 border-2 w-24 mx-4" />
+          <div className="text-center">
+            <PiPrescription
+              size={70}
+              className="bg-gray-200 rounded-full p-4 mx-auto"
+            />
+            <p className="mt-4">Get a digital prescription & a free follow-up</p>
           </div>
         </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className="w-full h-32 bg-slate-900 text-white flex justify-evenly">
-        <div className="mt-7">
-          <p className=" text-3xl font-semibold">2,00,000+</p>
-          <p className=" text-lg ml-2 font-semibold">Happy Users</p>
+      </section>
+
+      {/* User Metrics */}
+      <section
+        className="w-full h-32 bg-slate-900 text-white flex justify-evenly items-center mt-32"
+        aria-label="User Metrics"
+      >
+        <div className="text-center">
+          <p className="text-3xl font-semibold">2,00,000+</p>
+          <p className="text-lg font-semibold">Happy Users</p>
         </div>
-        <div className="mt-7">
-          <p className=" text-3xl font-semibold ml-3">20,000+</p>
-          <p className=" text-lg font-semibold">Verified Doctors</p>
+        <div className="text-center">
+          <p className="text-3xl font-semibold">20,000+</p>
+          <p className="text-lg font-semibold">Verified Consultants</p>
         </div>
-        <div className="mt-7">
-          <p className=" text-3xl font-semibold ml-6">25+</p>
-          <p className=" text-lg  font-semibold">Specialities</p>
+        <div className="text-center">
+          <p className="text-3xl font-semibold">25+</p>
+          <p className="text-lg font-semibold">Specialties</p>
         </div>
-        <div className="mt-7">
-          <p className=" text-3xl font-semibold">4.5 / 5</p>
-          <p className=" text-lg  font-semibold">App Rating</p>
+        <div className="text-center">
+          <p className="text-3xl font-semibold">4.5 / 5</p>
+          <p className="text-lg font-semibold">App Rating</p>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

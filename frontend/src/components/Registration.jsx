@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UserRegistration from '../pages/auth/UserRegistration';
-import DoctorRegistration from '../pages/DoctorRegistration';
+import ConsultantRegistration from '../pages/ConsultantRegistration';
 
 const Registration = () => {
   const [flag, setFlag] = useState(false);
@@ -12,7 +12,7 @@ const Registration = () => {
           onClick={() => setFlag(true)}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded mr-4"
         >
-          Doctor
+          Consultant
         </button>
         <button
           onClick={() => setFlag(false)}
@@ -22,7 +22,7 @@ const Registration = () => {
         </button>
       </div>
       <div className="mt-4">
-        {flag === false ? <UserRegistration /> : <DoctorRegistration />}
+        {flag === false ? <UserRegistration /> : <ConsultantRegistration />}
       </div>
     </div>
   );

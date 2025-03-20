@@ -16,7 +16,7 @@ function PdfComp (props) {
       <p>
         Page {pageNumber} of {numPages}
       </p>
-      <Document file={`./public/Doctordetails/${props.fileName}`} onLoadSuccess={onDocumentLoadSuccess}>
+      <Document file={`./public/Consultantdetails/${props.fileName}`} onLoadSuccess={onDocumentLoadSuccess}>
         {
           Array.apply(null,Array(numPages))
           .map((x,i)=>i+1)

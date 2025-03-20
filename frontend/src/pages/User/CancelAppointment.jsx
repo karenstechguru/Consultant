@@ -45,7 +45,7 @@ const CancelAppointment=(props)=>
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme='red' onClick={()=>props.onHandleProceed(reason,props.date,props.time,props.doctorEmail)} ml={3}>
+              <Button colorScheme='red' onClick={()=>props.onHandleProceed(reason,props.date,props.time,props.consultantEmail)} ml={3}>
                 Proceed
               </Button>
             </AlertDialogFooter>

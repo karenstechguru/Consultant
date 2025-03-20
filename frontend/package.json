@@ -16,16 +16,22 @@
     "@material-tailwind/react": "^2.1.9",
     "@zegocloud/zego-uikit-prebuilt": "^2.0.1",
     "axios": "^1.6.7",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.7",
     "framer-motion": "^11.0.14",
+    "fs.promises": "^0.1.2",
     "js-cookie": "^3.0.5",
-    "react": "^18.2.0",
+    "native.js": "^0.0.3",
+    "react": "^18.3.1",
     "react-datepicker": "^6.5.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-pdf": "^7.7.1",
-    "react-router-dom": "^6.22.3",
+    "react-router-dom": "^6.28.0",
     "react-toastify": "^10.0.5",
+    "typescript": "^5.7.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
@@ -38,7 +44,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.16",
     "vite": "^5.1.6"
   }
 }

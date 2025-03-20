@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const FeedBackForm = () => {
     const [rating, setRating] = useState(null);
     const [review,setReview] = useState("");
-    const [doctorEmail, setDoctorEmail] = useState("")
+    const [consultantEmail, setConsultantEmail] = useState("")
     const Email = Cookies.get('email');
     const Name = Cookies.get('name');
     const token = Cookies.get('userToken');
@@ -17,14 +17,14 @@ const FeedBackForm = () => {
     {
         if(token)
         {
-            if(doctorEmail.length > 0)
+            if(consultantEmail.length > 0)
             {
                 if(rating !== null)
                 {
                     const date = new Date().toLocaleDateString("en-GB");
                     const time = new Date().toLocaleTimeString();
                     const reviews = { userName: Name, userEmail: Email, date, time, rating, review}
-                    axios.patch("http://localhost:5000/reviews",{reviews, doctorEmail})
+                    axios.patch("http://localhost:5137/reviews",{reviews, consultantEmail})
                     .then((res)=>{
                     // alert(res.data);
                     toast.success(res.data, {
@@ -40,7 +40,7 @@ const FeedBackForm = () => {
                     })
                     .catch((e)=>console.log(e))
                     setRating(null);
-                    setDoctorEmail("");
+                    setConsultantEmail("");
                     setReview("");
                 }
                 else
@@ -60,8 +60,8 @@ const FeedBackForm = () => {
             }
             else
             {
-                // alert("Please give a doctor Email")
-                toast.warn("Please give a doctor Email", {
+                // alert("Please give a consultant Email")
+                toast.warn("Please give a consultant Email", {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -93,8 +93,8 @@ const FeedBackForm = () => {
         <div className="py-4 px-8">
             <form>
                 <div className="mb-4">
-                    <label className="block mb-1 text-lg">Doctor Email:</label>
-                    <input className="border-2 rounded-md py-1 px-2 w-[40%]" type="text" value={doctorEmail} onChange={(e)=>setDoctorEmail(e.target.value)}/>
+                    <label className="block mb-1 text-lg">consultant Email:</label>
+                    <input className="border-2 rounded-md py-1 px-2 w-[40%]" type="text" value={consultantEmail} onChange={(e)=>setConsultantEmail(e.target.value)}/>
                 </div>
                 <div>
                     <label className="block mb-1 text-lg">Rating:</label>

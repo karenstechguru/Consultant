@@ -2,17 +2,25 @@
   margin-bottom:50px !important;
 }
 
+.bg-slate-700 li {
+  color: rgb(2, 2, 61) !important;
+}
+
+.bg-slate-700 {
+  background-color: #3498db !important;
+}
+
 .css-r6z5ec{
-  background-color: #334155 !important;
+  background-color: #e8ecf2 !important;
 }
 
 .css-1kfu8nn
 {
-  background-color: #334155 !important;
+  background-color: #e8ecf2 !important;
 }
 
 .css-18esm8n{
-  background-color: #334155 !important;
+  background-color: #e8ecf2 !important;
 }
 
 .MenuItem{
@@ -20,8 +28,8 @@
   border-radius: none !important;
 }
 
-.DoctorMenuItem{
-  background-color: #334155 !important;
+.ConsultantMenuItem{
+  background-color: #e8ecf2 !important;
   /* color: black !important; */
 }
 

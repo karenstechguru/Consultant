@@ -6,7 +6,7 @@ mongoose.connect(DB)
 .then(()=>{
     console.log("DB connected")
 }).catch((e)=>{
-    console.log(e);
+    console.log("Database connection error:", e.message);
 })
 
 

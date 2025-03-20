@@ -14,7 +14,7 @@ const Services = () => {
   const nav = useNavigate();
 
   const getData = () => {
-    axios.get("http://localhost:5000/docDetails")
+    axios.get("http://localhost:5137/consultantDetails")
       .then((res) => {
         let data = res.data;
         let filteredData = data.filter((temp) => temp.verified === true);
@@ -70,7 +70,7 @@ const Services = () => {
                     <Image
                       objectFit='cover'
                       maxW={{ base: '100%', sm: '200px' }}
-                      src={`./public/Doctordetails/${temp.photo}`}
+                      src={`./public/Consultantdetails/${temp.photo}`}
                       alt={temp.name}
                     />
       
@@ -120,7 +120,7 @@ const Services = () => {
                     <Image
                       objectFit='cover'
                       maxW={{ base: '100%', sm: '200px' }}
-                      src={`./public/Doctordetails/${temp.photo}`}
+                      src={`./public/Consultantdetails/${temp.photo}`}
                       alt={temp.name}
                     />
       

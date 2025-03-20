@@ -11,7 +11,7 @@ const ReviewsDisplay = () => {
 
     useEffect(() => {
         const email = reviewEmail;
-        axios.get(`http://localhost:5000/getDocData/${email}`)
+        axios.get(`http://localhost:5137/getConData/${email}`)
             .then((res) => {
                 setReviews(res.data.reviews);
             })

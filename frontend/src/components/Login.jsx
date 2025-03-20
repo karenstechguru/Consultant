@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import UserLogin from '../pages/auth/UserLogin';
-import DoctorLogin from '../pages/Doctor/DoctorLogin';
+import ConsultantLogin from '../pages/Consultant/ConsultantLogin';
 import AdminLogin from '../pages/auth/AdminLogin';
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
             onClick={() => setFlag(2)}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded mr-4"
           >
-            Doctor
+            Consultant
           </button>
           <button
             onClick={() => setFlag(3)}
@@ -29,7 +29,7 @@ const Login = () => {
           </button>
         </div>
         <div className="mt-4">
-          {flag === 3 ? <UserLogin/> : flag === 2 ? <DoctorLogin/> : <AdminLogin/>}
+          {flag === 3 ? <UserLogin/> : flag === 2 ? <ConsultantLogin/> : <AdminLogin/>}
         </div>
       </div>
     );

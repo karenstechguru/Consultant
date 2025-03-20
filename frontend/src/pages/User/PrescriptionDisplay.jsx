@@ -4,8 +4,8 @@ import { FaPlus } from "react-icons/fa";
 
 const PrescriptionDisplay = () => {
     let k = useLocation();
-    let { name, email, doctorName, doctorEmail, dnt, prescription, advice } = k.state.prescription;
-    console.log({ name, email, doctorName, doctorEmail, dnt, prescription, advice });
+    let { name, email, consultantName, consultantEmail, dnt, prescription, advice } = k.state.prescription;
+    console.log({ name, email, consultantName, consultantEmail, dnt, prescription, advice });
 
     return (
         <div className="max-w-4xl m-5 border-2 border-black mx-auto p-4">
@@ -17,8 +17,8 @@ const PrescriptionDisplay = () => {
             <div className="flex justify-between my-auto">
                 <div className="flex flex-col">
                     {/* <h2 className="text-xl my-2">Email: {email}</h2> */}
-                    <h2 className="text-xl my-2"><span className='font-bold'>Doctor Name: </span> {doctorName}</h2>
-                    <h2 className="text-xl my-2"><span className='font-bold'>Doctor Email: </span> {doctorEmail}</h2>
+                    <h2 className="text-xl my-2"><span className='font-bold'>Consultant Name: </span> {consultantName}</h2>
+                    <h2 className="text-xl my-2"><span className='font-bold'>Consultant Email: </span> {consultantEmail}</h2>
                 </div>
                 <div>
                     <h2 className="text-xl my-2"><span className='font-bold'>Date: </span> {dnt.date}</h2>
@@ -57,7 +57,7 @@ const PrescriptionDisplay = () => {
             <h2 className="text-2xl text-red-400 underline underline-offset-2 font-extrabold mt-10">Advice:</h2>
             <h2 className="text-xl mt-4 mb-10">{advice}</h2>
             <div className="bg-sky-500 h-8 flex justify-center">
-                <h2 className="text-lg my-auto mr-3 font-bold text-white">"Don't stop medication because now you feel fine,Please follow doctor prescription."</h2>
+                <h2 className="text-lg my-auto mr-3 font-bold text-white">"Don't stop medication because now you feel fine,Please follow consultant prescription."</h2>
             </div>
         </div>
     );

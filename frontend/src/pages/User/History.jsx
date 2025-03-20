@@ -32,7 +32,7 @@ const HistoryPage=()=>
       
     const getData=()=>
     {
-        axios.get(`http://localhost:5000/Booking/getBooking/${email}`)
+        axios.get(`http://localhost:5137/Booking/getBooking/${email}`)
         .then((res) => {
           const sortedData = res.data.sort((a, b) => {
             // Extract date parts
@@ -81,7 +81,7 @@ const HistoryPage=()=>
           {
             try
             {
-               axios.patch("http://localhost:5000/Booking/updateBooking",{_id:item._id})
+               axios.patch("http://localhost:5137/Booking/updateBooking",{_id:item._id})
                .then((res)=>{
                 console.log(res);
                })
@@ -108,7 +108,7 @@ const HistoryPage=()=>
         <Table variant='simple'>
           <Thead>
             <Tr>
-              <Th>Doctor Name</Th>
+              <Th>Consultant Name</Th>
               <Th>Expertise</Th>
               <Th>Date</Th>
               <Th>Time</Th>
@@ -123,7 +123,7 @@ const HistoryPage=()=>
                     if(temp.sta==="Completed")
                     {
                       return <Tr>
-                        <Td>{temp.docName}</Td>
+                        <Td>{temp.consName}</Td>
                         <Td>{temp.expertise}</Td>
                         <Td>{temp.dnt.date}</Td>
                         <Td>{temp.dnt.time}</Td>
@@ -135,7 +135,7 @@ const HistoryPage=()=>
                     else
                     {
                       return <Tr>
-                        <Td>{temp.docName}</Td>
+                        <Td>{temp.conName}</Td>
                         <Td>{temp.expertise}</Td>
                         <Td>{temp.dnt.date}</Td>
                         <Td>{temp.dnt.time}</Td>

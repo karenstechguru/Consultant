@@ -1,9 +1,9 @@
 const express = require('express');
-const DocController = require('../controllers/doc-auth-controller').default;
+const ConController = require('../controllers/con-auth-controller').default;
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const fsPromises = require('fs/promises');
-const docSchema = require('../models/doctor-registration-schema.js');
+const conSchema = require('../models/consultant-registration-schema.js');
 const cors = require('cors');
 require('../db/conn.js');
 // router.use(express.urlencoded({ extended: true }));
@@ -13,7 +13,7 @@ router.use(cors());
 const multer = require('multer');
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../frontend/public/Doctordetails');
+    cb(null, '../frontend/public/Consultantdetails');
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now();
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post('/docSubmit',
+router.post('/conSubmit',
   upload.fields([{ name: 'photo' }, { name: 'license' }, { name: 'degree' }]),
   async (req, res) => {
     try {
@@ -37,7 +37,7 @@ router.post('/docSubmit',
         address,
         gender,
       } = req.body;
-      let data = await docSchema.find({email});
+      let data = await conSchema.find({email});
       console.log(data);
       if(data.length==0)
       {
@@ -46,7 +46,7 @@ router.post('/docSubmit',
         const license = req.files['license'][0].filename;
         const photo = req.files['photo'][0].filename;
         const degree = req.files['degree'][0].filename;
-        await docSchema.create({
+        await conSchema.create({
           name,
           email,
           phone,
@@ -63,7 +63,7 @@ router.post('/docSubmit',
       }
       else
       {
-        res.send("doctor already exists")
+        res.send("consultant already exists")
       }
     } catch (e) {
       console.log(e);
@@ -71,22 +71,22 @@ router.post('/docSubmit',
   }
 );
 
-router.get('/docDetails', async (req, res) => {
-  let data = await docSchema.find();
+router.get('/conDetails', async (req, res) => {
+  let data = await conSchema.find();
   res.send(data);
 });
 
-router.get('/getDocData/:email', async (req, res) => {
+router.get('/getConData/:email', async (req, res) => {
   let {email} = req.params;
-  let data = await docSchema.findOne({email});
+  let data = await conSchema.findOne({email});
   res.send(data);
 });
 
 
-router.patch('/docVerfication', async (req, res) => {
+router.patch('/conVerfication', async (req, res) => {
   let { email } = req.body;
-  let data = await docSchema.findOne({ email: email });
-  await docSchema.findByIdAndUpdate(
+  let data = await conSchema.findOne({ email: email });
+  await conSchema.findByIdAndUpdate(
     { _id: data._id },
     { $set: { verified: true } }
   );
@@ -94,8 +94,8 @@ router.patch('/docVerfication', async (req, res) => {
 });
 
 router.patch('/reviews', async (req, res) => {
-  let {reviews, doctorEmail} = req.body;
-  let data = await docSchema.findOne({ email: doctorEmail });
+  let {reviews, ConsultantEmail} = req.body;
+  let data = await conSchema.findOne({ email: ConsultantEmail });
   if(data)
   {
     data.reviews = [...data.reviews,reviews];
@@ -104,17 +104,17 @@ router.patch('/reviews', async (req, res) => {
   }
   else
   {
-    res.send('please enter vaild doctor email');
+    res.send('please enter vaild consultant email');
   }
 });
 
-router.delete('/docDelete/:email', async (req, res) => {
+router.delete('/consDelete/:email', async (req, res) => {
   let email = req.params.email;
-  let data = await docSchema.findOne({ email: email });
-  await fsPromises.unlink(`../frontend/public/Doctordetails/${data.photo}`);
-  await fsPromises.unlink(`../frontend/public/Doctordetails/${data.degree}`);
-  await fsPromises.unlink(`../frontend/public/Doctordetails/${data.license}`);
-  await docSchema.findByIdAndDelete({ _id: data._id });
+  let data = await conSchema.findOne({ email: email });
+  await fsPromises.unlink(`../frontend/public/consultantdetails/${data.photo}`);
+  await fsPromises.unlink(`../frontend/public/consultantdetails/${data.degree}`);
+  await fsPromises.unlink(`../frontend/public/consultantdetails/${data.license}`);
+  await conSchema.findByIdAndDelete({ _id: data._id });
   res.send('Deleted');
 });
 

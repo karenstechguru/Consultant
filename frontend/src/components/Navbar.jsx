@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom';
 
 import Logo from '../assets/WebLogo.png';
 import MyBookingsMenu from '../pages/User/MyBookingsMenu';
-import DoctorBookingsMenu from '../pages/Doctor/DoctorBookingsMenu';
+import ConsultantBookingsMenu from '../pages/Consultant/ConsultantBookingsMenu';
 const Navbar = () => {
-  const docToken = Cookies.get('doctorLogin');
+  const consultantToken = Cookies.get('consultantLogin');
   const userToken = Cookies.get('userToken');
   const adminToken = Cookies.get('adminToken');
   let nav = useNavigate();
@@ -20,16 +20,16 @@ const Navbar = () => {
   const [isVerified, setVerified] = useState();
 
   useEffect(() => {
-    if (docToken !== undefined) {
+    if (consultantToken !== undefined) {
       const email = Cookies.get('email');
       axios
-        .get(`http://localhost:5000/getDocData/${email}`)
+        .get(`http://localhost:5137/getConData/${email}`)
         .then((res) => {
           setVerified(res.data.verified);
         })
         .catch((e) => console.log(e));
     }
-  }, [docToken]);
+  }, [consultantToken]);
   const handleLogout = (token) => {
     Cookies.remove(token);
     Cookies.remove('name');
@@ -61,7 +61,7 @@ const Navbar = () => {
               </li>
               <li>
                 {' '}
-                <NavLink to="/docrequests">Doctor Requests</NavLink>
+                <NavLink to="/consultantrequests">Consultant Requests</NavLink>
               </li>
               <li>
                 {' '}
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <NavLink to="/contact">Contact</NavLink>
               </li>
             </div>
-          ) : docToken != null && isVerified ? (
+          ) : consultantToken != null && isVerified ? (
             <div className="flex relative space-x-6 text-center ">
               <li>
                 {' '}
@@ -90,19 +90,19 @@ const Navbar = () => {
               </li>
               <li>
                 {' '}
-                <NavLink to="/docSchedule">Schedules</NavLink>
+                <NavLink to="/consultantSchedule">Schedules</NavLink>
               </li>
               <li>
                 {' '}
-                <Menu isLazy className="DoctorMenuItem">
+                <Menu isLazy className="ConsultantMenuItem">
                   <MenuButton>Appointments</MenuButton>
-                  <MenuList className="DoctorMenuItem">
-                    <Link to="/doctorBookings">
-                      <MenuItem className="DoctorMenuItem">
+                  <MenuList className="ConsultantMenuItem">
+                    <Link to="/consultantBookings">
+                      <MenuItem className="ConsultantMenuItem">
                         My Appointments
                       </MenuItem>
                     </Link>
-                    <Link to="/doctorHistory">
+                    <Link to="/consultantHistory">
                       <MenuItem>History</MenuItem>
                     </Link>
                   </MenuList>
@@ -124,7 +124,7 @@ const Navbar = () => {
               </li>
               <li>
                 {' '}
-                <NavLink onClick={() => handleLogout('doctorLogin')}>
+                <NavLink onClick={() => handleLogout('consultantLogin')}>
                   Logout
                 </NavLink>
               </li>
@@ -133,7 +133,7 @@ const Navbar = () => {
                 <NavLink to="/contact">Contact</NavLink>
               </li>
             </div>
-          ) : docToken != null && !isVerified ? (
+          ) : consultantToken != null && !isVerified ? (
             <div className="flex relative space-x-6 text-center ">
               <li>
                 {' '}
@@ -149,7 +149,7 @@ const Navbar = () => {
               </li>
               <li>
                 {' '}
-                <NavLink onClick={() => handleLogout('doctorLogin')}>
+                <NavLink onClick={() => handleLogout('consultantLogin')}>
                   Logout
                 </NavLink>
               </li>

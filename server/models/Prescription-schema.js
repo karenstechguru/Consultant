@@ -7,10 +7,10 @@ const prescription = new mongoose.Schema({
   email: {
     type: String,
   },
-  doctorName: {
+  consultantName: {
     type: String,
   },
-  doctorEmail: {
+  consultantEmail: {
     type: String,
   },
   dnt: {

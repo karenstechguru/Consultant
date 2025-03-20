@@ -26,11 +26,11 @@ const YourBookings=()=>
     const [isReasonInvalid, setIsReasonInvalid] = useState(false);
     const {onClose } = useDisclosure()
 
-    const onHandleProceed=(reason,date,time,doctorEmail)=>
+    const onHandleProceed=(reason,date,time,consultantEmail)=>
     {
          if(reason!=="")
          {
-             axios.patch("http://localhost:5000/Booking/cancelBooking",{reason,date,time,doctorEmail,email})
+             axios.patch("http://localhost:5137/Booking/cancelBooking",{reason,date,time,consultantEmail,email})
              .then((res)=>console.log(res.data))
              .catch((e)=>console.log(e))
              onClose();
@@ -44,7 +44,7 @@ const YourBookings=()=>
    
     const getData=()=>
     {
-        axios.get(`http://localhost:5000/Booking/getBooking/${email}`)
+        axios.get(`http://localhost:5137/Booking/getBooking/${email}`)
         .then((res) => {
           const sortedData = res.data.sort((a, b) => {
             // Extract date parts
@@ -108,7 +108,7 @@ const YourBookings=()=>
         <Table variant='simple'>
           <Thead>
             <Tr>
-              <Th>Doctor Name</Th>
+              <Th>Consultant Name</Th>
               <Th>Expertise</Th>
               <Th>Date</Th>
               <Th>Time</Th>
@@ -124,20 +124,20 @@ const YourBookings=()=>
                     if(temp.sta==="Upcomming")
                     {
                       return <Tr>
-                        <Td>{temp.docName}</Td>
+                        <Td>{temp.conName}</Td>
                         <Td>{temp.expertise}</Td>
                         <Td>{temp.dnt.date}</Td>
                         <Td>{temp.dnt.time}</Td>
                         <Td>{temp.sta}</Td>
                         <Td>{temp.reason}</Td>
                         <Td><button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 m-3" onClick={()=>{connect(temp.meetingId)}}>connect</button></Td>
-                        <Td><CancelAppointment onHandleProceed={onHandleProceed} isReasonInvalid={isReasonInvalid} date={temp.dnt.date} time={temp.dnt.time} doctorEmail={temp.doctorEmail}/></Td>
+                        <Td><CancelAppointment onHandleProceed={onHandleProceed} isReasonInvalid={isReasonInvalid} date={temp.dnt.date} time={temp.dnt.time} consultantEmail={temp.consultantEmail}/></Td>
                      </Tr>
                     }
                     else
                     {
                       return <Tr>
-                        <Td>{temp.docName}</Td>
+                        <Td>{temp.contName}</Td>
                         <Td>{temp.expertise}</Td>
                         <Td>{temp.dnt.date}</Td>
                         <Td>{temp.dnt.time}</Td>

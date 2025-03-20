@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import DoctorSchedule from "./pages/Doctor/DoctorSchedule";
+import ConsultantSchedule from "./pages/Consultant/ConsultantSchedule";
 import PublicRoutes from "./routes/PublicRoutes";
 
 function App() {

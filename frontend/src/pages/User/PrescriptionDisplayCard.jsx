@@ -15,14 +15,14 @@ const PrescriptionDisplayCard = () => {
   useEffect(() => {
     if (token) {
       axios
-        .get(`http://localhost:5000/pres/getPrescription/${email}`)
+        .get(`http://localhost:5137/pres/getPrescription/${email}`)
         .then((res) => {
           setData(res.data);
         })
         .catch((e) => console.log(e));
     } else {
       axios
-        .get(`http://localhost:5000/pres/getDocPrescription/${email}`)
+        .get(`http://localhost:5137/pres/getConPrescription/${email}`)
         .then((res) => {
           setData(res.data);
         })
@@ -35,8 +35,8 @@ const PrescriptionDisplayCard = () => {
       setSearchData(
         data.filter(
           (temp) =>
-            temp.doctorName.toLowerCase().includes(search.toLowerCase()) ||
-            temp.doctorEmail.includes(search.toLowerCase())
+            temp.consultantName.toLowerCase().includes(search.toLowerCase()) ||
+            temp.consultantEmail.includes(search.toLowerCase())
         )
       );
     } else {
@@ -73,10 +73,10 @@ const PrescriptionDisplayCard = () => {
                 <div className="flex flex-col w-full p-4  rounded-lg bg-white border-l-emerald-800 border-s-4">
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900">
-                      {token ? temp.doctorName : temp.name}
+                      {token ? temp.consultantName : temp.name}
                     </h2>
                     <h2 className="text-gray-600">
-                      {token ? temp.doctorEmail : temp.email}
+                      {token ? temp.consultantEmail : temp.email}
                     </h2>
                   </div>
                   <div className="text-right">
@@ -98,10 +98,10 @@ const PrescriptionDisplayCard = () => {
                   <div class="px-4 py-4 flex items-center justify-between">
                     <div class="flex flex-col">
                       <h2 class="text-xl font-bold text-[#1e4070] mb-2">
-                        {token ? temp.doctorName : temp.name}
+                        {token ? temp.consultantName : temp.name}
                       </h2>
                       <h2 class="text-gray-600 text-base">
-                        {token ? temp.doctorEmail : temp.email}
+                        {token ? temp.consultantEmail : temp.email}
                       </h2>
                     </div>
                     <div class="text-right">
